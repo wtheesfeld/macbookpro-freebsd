@@ -22,9 +22,15 @@ Wireless is bcm4331, neither bwi or bwn drivers work, needs version 5 drivers
 In the tty console the backtick/tilde key does nothing, and in Xorg the backtick/tilde key gives < and >. We need to load some custom keyboard layouts for both.
 -    TTY Fix: load new keyboard layout
 -    Download this keyboard layout: https://github.com/wtheesfeld/macbookpro-freebsd/blob/master/us.macbook.kbd
--    Load it:
+-    Load it (as root. use sudo or su):
 ```
-        kbdcontrol -l us.macbook.kbd 
+        mv us.macbook.kbd /usr/share/syscons/keymaps/us.macbook.kbd
+        chmod 444 /usr/share/syscons/keymaps/us.macbook.kbd
+        kbdcontrol -l /usr/share/syscons/keymaps/us.macbook.kbd 
+```
+-    To make this permanent system-wide, edit /etc/profile:
+```
+         kbdcontrol -l /usr/share/syscons/keymaps/us.macbook.kbd
 ```
 -    Xorg Fix: load new keyboard map
 -    Download this keyboard map: https://github.com/wtheesfeld/macbookpro-freebsd/blob/master/.xkbmap
