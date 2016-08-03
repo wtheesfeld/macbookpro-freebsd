@@ -26,6 +26,7 @@ In the tty console the backtick/tilde key does nothing, and in Xorg the backtick
         xkbcomp -w 0 .xkbmap $DISPLAY
 ```
 -    To load the keymap every time Xorg starts, place that line in your ~/.xinitrc
+
 #Touchpad
 Touchpad support works with ums driver automatically loaded, but no multi-touch.
 -    Fix: load ATP driver
