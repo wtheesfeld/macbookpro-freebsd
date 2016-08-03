@@ -11,6 +11,21 @@ Wireless is bcm4331, neither bwi or bwn drivers work, needs version 5 drivers
         legal.realtek.license_ack=1
         rsu_rtl18712fw_load="YES"
 ```
+#Keyboard Layout
+In the tty console the backtick/tilde key does nothing, and in Xorg the backtick/tilde key gives < and >. We need to load some custom keyboard layouts for both.
+-    TTY Fix: load new keyboard layout
+-    Download this keyboard layout: https://github.com/wtheesfeld/macbookpro-freebsd/blob/master/us.macbook.kbd
+-    Load it:
+```
+        kbdcontrol -l us.macbook.kbd 
+```
+-    Xorg Fix: load new keyboard map
+-    Download this keyboard map: https://github.com/wtheesfeld/macbookpro-freebsd/blob/master/.xkbmap
+-    Load it:
+```
+        xkbcomp -w 0 .xkbmap $DISPLAY
+```
+-    To load the keymap every time Xorg starts, place that line in your ~/.xinitrc
 #Touchpad
 Touchpad support works with ums driver automatically loaded, but no multi-touch.
 -    Fix: load ATP driver
