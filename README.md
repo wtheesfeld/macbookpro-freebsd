@@ -57,6 +57,7 @@ Loading ACPI_VIDEO module will automatically brighten screen when AC is plugged 
 
 #SMC Sensors (temps and fan control)
 ##NOTE: I patched against the 10.3 RELEASE source
+###Patch has been submitted to PR
 Download and apply this patch
 -    https://github.com/wtheesfeld/macbookpro-freebsd/blob/master/asmc_92.patch
 -    move it to /usr/src/sys/dev/asmc:
